@@ -172,9 +172,13 @@ sudo docker run mirror-bot
 ```
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 ## Deploying on Heroku
 
+=======
+## Deploying on Heroku
+>>>>>>> 8385907... Added heroku support
 - Run the script to generate token file(token.pickle) for Google Drive:
 ```
 python3 generate_drive_token.py
@@ -197,6 +201,7 @@ heroku git:remote -a appname
 heroku stack:set container
 ```
 <<<<<<< HEAD
+<<<<<<< HEAD
 - Add heroku postgres database, connect to database and create a table:
 ```
 CREATE TABLE users (uid bigint, sudo boolean DEFAULT FALSE)
@@ -206,6 +211,8 @@ CREATE TABLE users (uid bigint, sudo boolean DEFAULT FALSE)
 heroku addons:create heroku-postgresql
 >>>>>>> 33158f4... DB related change
 ```
+=======
+>>>>>>> 8385907... Added heroku support
 - Add Private Credentials and Config Stuff:
 ```
 git add -f credentials.json token.pickle config.env heroku.yml
@@ -234,7 +241,10 @@ git commit -asm "Added hardcoded authorized_chats.txt"
 git push heroku heroku:master
 ```
 
+<<<<<<< HEAD
 >>>>>>> 57bde5c... Modified authentication
+=======
+>>>>>>> 8385907... Added heroku support
 # Using service accounts for uploading to avoid user rate limit
 For Service Account to work, you must set USE_SERVICE_ACCOUNTS="True" in config file or environment variables
 Many thanks to [AutoRClone](https://github.com/xyou365/AutoRclone) for the scripts
