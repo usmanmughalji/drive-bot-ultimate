@@ -10,6 +10,9 @@ import socket
 import faulthandler
 faulthandler.enable()
 
+import psycopg2
+from psycopg2 import Error
+
 socket.setdefaulttimeout(600)
 
 botStartTime = time.time()
@@ -60,14 +63,11 @@ status_reply_dict = {}
 download_dict = {}
 # Stores list of users and chats the bot is authorized to use in
 AUTHORIZED_CHATS = set()
-if os.path.exists('authorized_chats.txt'):
-    with open('authorized_chats.txt', 'r+') as f:
-        lines = f.readlines()
-        for line in lines:
-            #    LOGGER.info(line.split())
-            AUTHORIZED_CHATS.add(int(line.split()[0]))
+SUDO_USERS = set()
+
 try:
     BOT_TOKEN = getConfig('BOT_TOKEN')
+    DB_URI = getConfig('DATABASE_URL')
     parent_id = getConfig('GDRIVE_FOLDER_ID')
     telegraph_token = getConfig('TELEGRAPH_TOKEN')
     DOWNLOAD_DIR = getConfig('DOWNLOAD_DIR')
@@ -84,6 +84,7 @@ except KeyError as e:
     exit(1)
 
 try:
+<<<<<<< HEAD
     MEGA_API_KEY = getConfig('MEGA_API_KEY')
 except KeyError:
     logging.warning('MEGA API KEY not provided!')
@@ -97,6 +98,27 @@ except KeyError:
     logging.warning('MEGA Credentials not provided!')
     MEGA_EMAIL_ID = None
     MEGA_PASSWORD = None
+=======
+    conn = psycopg2.connect(DB_URI)
+    cur = conn.cursor()
+    sql = "SELECT * from users;"
+    cur.execute(sql)
+    rows = cur.fetchall()  #returns a list ==> (uid, sudo)
+    for row in rows:
+        AUTHORIZED_CHATS.add(row[0])
+        if row[1]:
+            SUDO_USERS.add(row[0])
+    print("Connected to DB")  
+except psycopg2.DatabaseError as error :
+    LOGGER.error(f"Error : {error}")
+    exit(1)
+finally:
+    #closing database connection.
+    if(conn):
+        cur.close()
+        conn.close()
+
+>>>>>>> 57bde5c... Modified authentication
 try:
     INDEX_URL = getConfig('INDEX_URL')
     if len(INDEX_URL) == 0:
