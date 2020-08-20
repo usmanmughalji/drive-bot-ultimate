@@ -1,4 +1,5 @@
 requests
+progress
 psutil
 python-telegram-bot==12.6.1 
 google-api-python-client>=1.7.11,<1.7.20
