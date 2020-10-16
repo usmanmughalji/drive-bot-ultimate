@@ -196,9 +196,15 @@ heroku git:remote -a appname
 ```
 heroku stack:set container
 ```
+<<<<<<< HEAD
 - Add heroku postgres database, connect to database and create a table:
 ```
 CREATE TABLE users (uid bigint, sudo boolean DEFAULT FALSE)
+=======
+- Add Heroku Postgres (only if you are deploying it for the 1st time)
+```
+heroku addons:create heroku-postgresql
+>>>>>>> 33158f4... DB related change
 ```
 - Add Private Credentials and Config Stuff:
 ```
