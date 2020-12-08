@@ -77,31 +77,6 @@ def log(update, context):
 
 @run_async
 def bot_help(update, context):
-    help_string = f'''
-/{BotCommands.HelpCommand}: To get this message
-
-/{BotCommands.MirrorCommand} [download_url][magnet_link]: Start mirroring the link to google drive
-
-/{BotCommands.UnzipMirrorCommand} [download_url][magnet_link] : starts mirroring and if downloaded file is any archive , extracts it to google drive
-
-/{BotCommands.TarMirrorCommand} [download_url][magnet_link]: start mirroring and upload the archived (.tar) version of the download
-
-/{BotCommands.WatchCommand} [youtube-dl supported link]: Mirror through youtube-dl. Click /{BotCommands.WatchCommand} for more help.
-
-/{BotCommands.TarWatchCommand} [youtube-dl supported link]: Mirror through youtube-dl and tar before uploading
-
-/{BotCommands.CancelMirror} : Reply to the message by which the download was initiated and that download will be cancelled
-
-/{BotCommands.StatusCommand}: Shows a status of all the downloads
-
-/{BotCommands.ListCommand} [search term]: Searches the search term in the Google drive, if found replies with the link
-
-/{BotCommands.StatsCommand}: Show Stats of the machine the bot is hosted on
-
-/{BotCommands.AuthorizeCommand}: Authorize a chat or a user to use the bot (Can only be invoked by owner of the bot)
-
-/{BotCommands.LogCommand}: Get a log file of the bot. Handy for getting crash reports
-
     help_string_adm = f'''
 /{BotCommands.StartCommand} <b>: Alive or Not</b>
 /{BotCommands.MirrorCommand} <b>[url OR magnet_link]: Mirror & upload</b>
