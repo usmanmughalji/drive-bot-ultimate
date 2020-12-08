@@ -19,13 +19,8 @@ class _BotCommands:
         self.HelpCommand = 'help'
         self.LogCommand = 'log'
         self.CloneCommand = "clone"
-<<<<<<< HEAD
-        self.WatchCommand = 'watch'
-        self.TarWatchCommand = 'tarwatch'
-        self.deleteCommand = 'del'
-=======
         self.WatchCommand = 'yt'
         self.TarWatchCommand = 'taryt'
->>>>>>> 3c84770... Modify the commands
+        self.deleteCommand = 'del'
 
 BotCommands = _BotCommands()

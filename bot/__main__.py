@@ -77,9 +77,7 @@ def log(update, context):
 
 @run_async
 def bot_help(update, context):
-<<<<<<< HEAD
     help_string = f'''
-<<<<<<< HEAD
 /{BotCommands.HelpCommand}: To get this message
 
 /{BotCommands.MirrorCommand} [download_url][magnet_link]: Start mirroring the link to google drive
@@ -103,10 +101,8 @@ def bot_help(update, context):
 /{BotCommands.AuthorizeCommand}: Authorize a chat or a user to use the bot (Can only be invoked by owner of the bot)
 
 /{BotCommands.LogCommand}: Get a log file of the bot. Handy for getting crash reports
-=======
-=======
+
     help_string_adm = f'''
->>>>>>> db4177f... Modified help
 /{BotCommands.StartCommand} <b>: Alive or Not</b>
 /{BotCommands.MirrorCommand} <b>[url OR magnet_link]: Mirror & upload</b>
 /{BotCommands.TarMirrorCommand} <b>[url OR magnet_link]: Mirror & upload as .tar</b>
@@ -121,7 +117,6 @@ def bot_help(update, context):
 /{BotCommands.deleteCommand} <b>[link]: Delete from drive[Only owner & sudo]</b>
 /{BotCommands.StatsCommand} <b>: Show Stats of the machine</b>
 /{BotCommands.PingCommand} <b>: Check ping!</b>
-<<<<<<< HEAD
 /{BotCommands.RestartCommand} <b>: Restart bot(Only owner)</b>
 /{BotCommands.AuthorizeCommand} <b>: Authorize(Only owner & sudo)</b>
 /{BotCommands.UnAuthorizeCommand} <b>: Unauthorize(Only owner & sudo)</b>
@@ -129,8 +124,6 @@ def bot_help(update, context):
 /{BotCommands.AddSudoCommand} <b>: Add sudo user(Only owner)</b>
 /{BotCommands.RmSudoCommand} <b>: Remove sudo users(Only owner)</b>
 /{BotCommands.LogCommand} <b>: Get log file(Only owner)</b>
->>>>>>> a83dd71... Some modifications to main.py
-=======
 /{BotCommands.RestartCommand} <b>: Restart bot[Only owner & sudo]</b>
 /{BotCommands.AuthorizeCommand} <b>: Authorize[Only owner & sudo]</b>
 /{BotCommands.UnAuthorizeCommand} <b>: Unauthorize[Only owner & sudo]</b>
@@ -138,7 +131,6 @@ def bot_help(update, context):
 /{BotCommands.AddSudoCommand} <b>: Add sudo user[Only owner]</b>
 /{BotCommands.RmSudoCommand} <b>: Remove sudo users[Only owner]</b>
 /{BotCommands.LogCommand} <b>: Get log file[Only owner & sudo]</b>
->>>>>>> 848228b... Added : new permissions for sudo
 
 '''
 

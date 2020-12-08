@@ -150,7 +150,6 @@ class MirrorListener(listeners.MirrorListeners):
                 share_url = requests.utils.requote_uri(f'{INDEX_URL}/{download_dict[self.uid].name()}')
                 if os.path.isdir(f'{DOWNLOAD_DIR}/{self.uid}/{download_dict[self.uid].name()}'):
                     share_url += '/'
-<<<<<<< HEAD
                 if SHORTENER is not None and SHORTENER_API is not None:
                     siurl = requests.get('https://{}/api?api={}&url={}&format=text'.format(SHORTENER, SHORTENER_API, share_url)).text
                     buttons.buildbutton("💥Index Link💥", siurl)
@@ -162,19 +161,12 @@ class MirrorListener(listeners.MirrorListeners):
                 buttons.buildbutton(f"{BUTTON_FOUR_NAME}", f"{BUTTON_FOUR_URL}")
             if BUTTON_FIVE_NAME is not None and BUTTON_FIVE_URL is not None:
                 buttons.buildbutton(f"{BUTTON_FIVE_NAME}", f"{BUTTON_FIVE_URL}")
-=======
-                buttons.buildbutton("💥Index Link💥", share_url)
->>>>>>> 1423ba4... Fix : tagging users
             if self.message.from_user.username:
                 uname = f"@{self.message.from_user.username}"
             else:
                 uname = f'<a href="tg://user?id={self.message.from_user.id}">{self.message.from_user.first_name}</a>'
             if uname is not None:
-<<<<<<< HEAD
                 msg += f'\n\ncc : {uname}'
-=======
-                msg += f'\n\nHey {uname}, your file is uploaded'
->>>>>>> 1423ba4... Fix : tagging users
             try:
                 fs_utils.clean_download(download_dict[self.uid].path())
             except FileNotFoundError:

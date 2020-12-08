@@ -9,20 +9,10 @@ from bot.helper.telegram_helper.bot_commands import BotCommands
 def list_drive(update,context):
     try:
         search = update.message.text.split(' ',maxsplit=1)[1]
-<<<<<<< HEAD
         LOGGER.info(f"Searching: {search}")
         reply = sendMessage('Searching..... Please wait!', context.bot, update)
         gdrive = GoogleDriveHelper(None)
         msg, button = gdrive.drive_list(search)
-=======
-        if "'"in search:
-            search = search.replace("'", "\\'")
-    except IndexError:
-        sendMessage('send a search key along with command', context.bot, update)
-        return
-        
-    reply = sendMessage('Searching...', context.bot, update)
->>>>>>> b793b00... fix for apostrophe error
 
         if button:
             editMessage(msg, reply, button)

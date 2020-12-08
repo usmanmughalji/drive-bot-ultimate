@@ -95,7 +95,26 @@ except KeyError as e:
     exit(1)
 
 try:
-<<<<<<< HEAD
+    conn = psycopg2.connect(DB_URI)
+    cur = conn.cursor()
+    sql = "SELECT * from users;"
+    cur.execute(sql)
+    rows = cur.fetchall()  #returns a list ==> (uid, sudo)
+    for row in rows:
+        AUTHORIZED_CHATS.add(row[0])
+        if row[1]:
+            SUDO_USERS.add(row[0])
+except Error as e:
+    if 'relation "users" does not exist' in str(e):
+        mktable()
+    else:
+        LOGGER.error(e)
+        exit(1)
+finally:
+    cur.close()
+    conn.close()
+
+try:
     MEGA_API_KEY = getConfig('MEGA_API_KEY')
 except KeyError:
     logging.warning('MEGA API KEY not provided!')
@@ -108,40 +127,7 @@ try:
 except KeyError:
     logging.warning('MEGA Credentials not provided!')
     MEGA_EMAIL_ID = None
-    MEGA_PASSWORD = None
-=======
-    conn = psycopg2.connect(DB_URI)
-    cur = conn.cursor()
-    sql = "SELECT * from users;"
-    cur.execute(sql)
-    rows = cur.fetchall()  #returns a list ==> (uid, sudo)
-    for row in rows:
-        AUTHORIZED_CHATS.add(row[0])
-        if row[1]:
-            SUDO_USERS.add(row[0])
-<<<<<<< HEAD
-    print("Connected to DB")  
-except psycopg2.DatabaseError as error :
-    LOGGER.error(f"Error : {error}")
-    exit(1)
-finally:
-    #closing database connection.
-    if(conn):
-        cur.close()
-        conn.close()
-=======
-except Error as e:
-    if 'relation "users" does not exist' in str(e):
-        mktable()
-    else:
-        LOGGER.error(e)
-        exit(1)
-finally:
-    cur.close()
-    conn.close()     
->>>>>>> 33158f4... DB related change
-
->>>>>>> 57bde5c... Modified authentication
+    MEGA_PASSWORD = None     
 try:
     INDEX_URL = getConfig('INDEX_URL')
     if len(INDEX_URL) == 0:
