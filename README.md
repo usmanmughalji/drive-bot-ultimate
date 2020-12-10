@@ -58,12 +58,12 @@ This project is heavily inspired from @out386 's telegram bot which is written i
 ## Bot commands to be set in botfather
 
 ```
-mirror - Start Mirroring
-tarmirror - Upload tar (zipped) file
-unzipmirror - Extract files
+mir - Start Mirroring
+tarmir - Upload tar (zipped) file
+unzip - Extract files
 clone - copy folder to drive
-watch - mirror YT-DL support link
-tarwatch - mirror youtube playlist link as tar
+yt - mirror YT-DL support link
+taryt - mirror youtube playlist link as tar
 cancel - Cancel a task
 cancelall - Cancel all tasks
 del - Delete file from Drive
