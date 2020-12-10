@@ -80,8 +80,8 @@ Deploying is pretty much straight forward and is divided into several steps as f
 
 - Clone this repo:
 ```
-git clone https://github.com/magneto261290/magneto-python-aria mirror-bot/
-cd mirror-bot
+git clone https://github.com/usmanmughalji/drive-bot-ultimate
+cd drive-bot-ultimate
 ```
 
 - Install requirements
@@ -168,11 +168,11 @@ sudo dockerd
 ```
 - Build Docker image:
 ```
-sudo docker build . -t mirror-bot
+sudo docker build . -t drive-bot-ultimate
 ```
 - Run the image:
 ```
-sudo docker run mirror-bot
+sudo docker run drive-bot-ultimate
 ```
 
 ## Deploying on Heroku
