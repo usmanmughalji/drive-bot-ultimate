@@ -160,6 +160,12 @@ Note: You can limit maximum concurrent downloads by changing the value of MAX_CO
 pip install google-api-python-client google-auth-httplib2 google-auth-oauthlib
 python3 generate_drive_token.py
 ```
+
+- Run the script to generate token file(token.pickle) for Google Drive:
+```
+python3 generate_drive_token.py
+```
+
 ## Deploying
 
 - Start docker daemon (skip if already running):
@@ -173,11 +179,6 @@ sudo docker build . -t drive-bot-ultimate
 - Run the image:
 ```
 sudo docker run drive-bot-ultimate
-```
-
-- Run the script to generate token file(token.pickle) for Google Drive:
-```
-python3 generate_drive_token.py
 ```
 
 ## Deploying on Heroku
