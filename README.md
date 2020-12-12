@@ -175,12 +175,13 @@ sudo docker build . -t drive-bot-ultimate
 sudo docker run drive-bot-ultimate
 ```
 
-## Deploying on Heroku
-
 - Run the script to generate token file(token.pickle) for Google Drive:
 ```
 python3 generate_drive_token.py
 ```
+
+## Deploying on Heroku
+
 - Install [Heroku cli](https://devcenter.heroku.com/articles/heroku-cli)
 - Login into your heroku account with command:
 ```
