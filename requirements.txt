@@ -16,3 +16,4 @@ psycopg2-binary
 git+https://github.com/ytdl-org/youtube-dl
 lxml
 telegraph
+appdirs
