@@ -54,6 +54,7 @@ This project is heavily inspired from @out386 's telegram bot which is written i
 - Uploading To Team Drives.
 - Index Link support
 - Shortener support
+- Extract password protected files (It's not hack, you have to enter password for extracting. LOL)
 
 ## Bot commands to be set in botfather
 
