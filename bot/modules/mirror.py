@@ -230,7 +230,7 @@ def _mirror(bot, update, isTar=False, extract=False):
         if len(link) == 0:
             if file is not None:
                 if file.mime_type != "application/x-bittorrent":
-                    listener = MirrorListener(bot, update, isTar, tag, extract)
+                    listener = MirrorListener(bot, update, pswd, isTar, tag, extract)
                     tg_downloader = TelegramDownloadHelper(listener)
                     tg_downloader.add_download(reply_to, f'{DOWNLOAD_DIR}{listener.uid}/')
                     sendStatusMessage(update, bot)
