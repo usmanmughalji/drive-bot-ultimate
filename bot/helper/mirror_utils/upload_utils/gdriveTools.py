@@ -509,7 +509,7 @@ class GoogleDriveHelper:
 
         content_count = 0
         if response["files"]:
-            msg += f'<h4>Results : {fileName}</h4><br><br>'
+            msg += f'<h4>{len(response["files"])} Results : {fileName}</h4><br><br>'
 
             for file in response.get('files', []):
                 if file.get('mimeType') == "application/vnd.google-apps.folder":  # Detect Whether Current Entity is a Folder or File.
@@ -567,7 +567,7 @@ class GoogleDriveHelper:
             if self.num_of_path > 1:
                 self.edit_telegraph()
 
-            msg = f"<b>Search Results For {fileName} 👇</b>"
+            msg = f"<b>🔎 Search Results For <i>{fileName}</i></b> \n<b>📚 Found {len(response['files'])} results</b>"
             buttons = button_build.ButtonMaker()   
             buttons.buildbutton("HERE", f"https://telegra.ph/{self.path[0]}")
 
