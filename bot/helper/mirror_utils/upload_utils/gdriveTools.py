@@ -272,7 +272,10 @@ class GoogleDriveHelper:
             if err.resp.get('content-type', '').startswith('application/json'):
                 reason = json.loads(err.content).get('error').get('errors')[0].get('reason')
                 if reason == 'userRateLimitExceeded' or reason == 'dailyLimitExceeded':
-                    raise err
+                    if USE_SERVICE_ACCOUNTS:
+                        self.switchServiceAccount()
+                        LOGGER.info(f"Got: {reason}, Trying Again.")
+                        return self.copyFile(file_id,dest_id)
                 else:
                     raise err
 
@@ -371,12 +374,6 @@ class GoogleDriveHelper:
                 err = err.last_attempt.exception()
             err = str(err).replace('>', '').replace('<', '')
             LOGGER.error(err)
-            if "User rate limit exceeded" in str(err):
-                msg = "User rate limit exceeded."
-                elif "File not found" in str(err):
-                    msg = "File not found."
-                else:
-                    msg = f"Error.\n{err}"
             return err, ""
         return msg, InlineKeyboardMarkup(buttons.build_menu(2))
 
