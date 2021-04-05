@@ -8,6 +8,7 @@ from https://github.com/AvinashReddy3108/PaperplaneExtended . I hereby take no c
 than the modifications. See https://github.com/AvinashReddy3108/PaperplaneExtended/commits/master/userbot/modules/direct_links.py
 for original authorship. """
 
+import time
 import re
 import math
 import json
@@ -64,6 +65,7 @@ def zippy_share(url: str) -> str:
         info = page.find('a', {'aria-label': 'Download file'})
         url = info.get('href')
     except requests.exceptions.ConnectionError:
+        time.sleep(2)
         print('')
     except requests.Timeout:
         print('')
