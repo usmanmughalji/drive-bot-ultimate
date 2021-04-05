@@ -522,12 +522,6 @@ class GoogleDriveHelper:
                         msg += f"<b><a href={furl}>Drive Link</a></b>"
                     if INDEX_URL is not None:
                         url = requests.utils.requote_uri(f'{INDEX_URL}/{file.get("name")}/')
-
-                    elif file.get('mimeType') == 'application/vnd.google-apps.shortcut':
-                        msg += f"⁍ <a href='https://drive.google.com/drive/folders/{file.get('id')}'>{file.get('name')}" \
-                            f"</a> (shortcut)"
-                        # Excluded index link as indexes cant download or open these shortcuts
-
                         if SHORTENER is not None and SHORTENER_API is not None:
                             siurl = requests.get('https://{}/api?api={}&url={}&format=text'.format(SHORTENER, SHORTENER_API, url)).text
                             msg += f' <b>| <a href="{siurl}">Index Link</a></b>'
