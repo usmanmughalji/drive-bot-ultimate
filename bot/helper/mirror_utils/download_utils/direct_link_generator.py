@@ -60,7 +60,7 @@ regex_result = (
 
 def zippy_share(url: str) -> str:
     try:
-        page = BeautifulSoup(requests.get(link).content, 'lxml', verify=False)
+        page = BeautifulSoup(requests.get(link).content, 'lxml')
         info = page.find('a', {'aria-label': 'Download file'})
         url = info.get('href')
     except requests.exceptions.ConnectionError:
